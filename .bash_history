@@ -106,3 +106,47 @@ unzip ngrok-stable-linux-arm64.zip
 ngrok help
 rm -rf ngrok
 rm -rf ngrok-stable-linux-arm64.zip 
+unzip ngrok-stable-linux-arm.zip 
+./ngrok help
+git add -A
+git commit -m "ngrok working at arm not arm64 on orangepione"
+git push origin master
+git status
+git pull
+nano server.sh 
+sh server.sh 
+sh server.sh 
+sh server.sh
+./ngrok tcp 22
+./ngrok killall ngrok
+./ngrok kill all
+./ngrok kill
+./ngrok process
+./ngrok http http://192.168.8.100:3000
+./ngrok end
+./ngrok help
+./ngrok http -inspect=false 80
+./ngrok stop
+./ngrok start --none
+./ngrok authtoken 1mFDVFPaLvf5sggnnHfDmJJz49t_5HNXTMU5bsrNYsM73qbR2
+./ngrok http 80
+killall ngrok
+sh server.sh 
+killall ngrok
+nano server.sh 
+killall ngrok
+nano killserver.sh
+nano server.sh 
+sh server.sh 
+nano server.sh 
+ls
+sh runserver1.sh 
+sh server.sh 
+sh killserver.sh 
+./ngrok http http://192.168.8.100:4040
+nano startngrok.sh
+nano startngrok.sh
+nano startngrok.sh
+sh startngrok.sh 
+nano startngrok.sh
+sh startngrok.sh 

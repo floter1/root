@@ -1,2 +1,2 @@
-python manage.py runserver localhost:3000
+python3 manage.py runserver 192.168.8.100:3000
 

@@ -79,3 +79,30 @@ nano serveo.sh
 sh serveo.sh 
 ls
 pwd
+ls
+unzip ngrok-stable-linux-amd64.zip 
+ls 
+git add -A
+git commit -m "ngrok linux"
+git push origin master
+./ngrok help
+ls
+sudo apt-get install package:arch
+sudo apt install package:arch
+sudo apt-get install arm:64
+sudo apt-get install arm64
+sudo apt-get update
+dpkg --add-architecture i386
+dpkg --add-architecture armhf
+sudo apt-get update
+sh runserver1.sh 
+sudo apt-get install links:1386
+sudo apt-get install libstdc++6:i386 libgcc:i386 zlib1g:i386 libncurses5:i386
+ls
+rm -rf ngrok
+rm -rf ngrok-stable-linux-amd64.zip 
+unzip ngrok-stable-linux-arm64.zip 
+./ngrok help
+ngrok help
+rm -rf ngrok
+rm -rf ngrok-stable-linux-arm64.zip 

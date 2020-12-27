@@ -1,0 +1,62 @@
+<!-- Left Panel -->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="{% url 'prodhome' %}">FScratch</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'prodhome' %}">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">More Options<span class="caret"></span></a>
+          <ul class="dropdown-menu" style="border-radius: 20px; border-style: ridge;">
+            <li>
+            <a href="/blog/">
+            Blog
+            </a>
+            </li>
+
+            <li>
+            <a href="/admin/">
+            Manage Blog
+            </a>
+            </li>
+
+            <li>
+            <a href="/search/">
+            Search Blog
+            </a>
+            </li>
+			
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% include 'home/html/navbar_content.html' %} 
+        <li>Hi</li>
+      </ul>
+        
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

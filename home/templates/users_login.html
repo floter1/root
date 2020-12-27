@@ -1,0 +1,32 @@
+{% include 'home/html/header.html'  %}
+
+{% if request.user.username == "" %}
+<form method="POST">
+  {%csrf_token%}
+
+<table border="0">
+
+<tr>
+<td>Username</td><td><input type="text" name="username" value="{{user.username}}"/> </td>
+</tr>
+
+<tr>
+<td>Password</td><td><input type="password" name="password" value="{{user.password}}"/></td>
+</tr>
+
+<tr>
+<td colspan="100"><center><input type="submit" value="Login"/></center></td>
+</tr>
+
+</table>
+</form>
+
+<!--
+<a href="{% url 'login1' %}">Login</a>
+-->
+{%else%}
+<a href="{% url 'logout1' %}">Logout</a>
+
+{%endif%}
+
+{% include 'home/html/footer.html'  %}

@@ -1,0 +1,29 @@
+{% include 'home/html/header.html'  %}
+
+<form method="POST">
+{%csrf_token%}
+
+<table border="0">
+{% for mem in member %}
+<tr>
+<td>Username</td><td>{{users.username}}"</td>
+</tr>
+
+
+<tr>
+<td>Points</td><td>{{mem.points}}"/></td>
+</tr>
+{%endfor%}
+<tr>
+<td>Amount</td><td><input type="text" name="amount" value=""/></td>
+</tr>
+
+<tr>
+<td colspan="100"><center><input type="submit" value="submit"/></center></td>
+</tr>
+
+</table>
+
+</form>
+
+{% include 'home/html/footer.html'  %}

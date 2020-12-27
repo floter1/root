@@ -1,0 +1,29 @@
+<!-- Right Panel -->
+
+<span id="rightpanel"
+data-role="panel"
+data-position-fixed="true"
+data-theme="a"
+data-swipe-open="true"
+data-display="push"
+data-position="left"
+style="background-color: white;" >
+
+<div data-theme="a"
+data-role="header"
+style="border-radius: 20px;" >
+
+<h2>Menu</h2>
+
+<a href="#header1"
+data-rel="close"
+data-role="button"
+data-theme="a"
+data-icon="delete"
+class="ui-btn-right">Close</a>
+</div>
+
+<div data-role="content">
+{% include 'html/right_content.html' %}
+</div>
+</span>

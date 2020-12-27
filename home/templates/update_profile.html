@@ -1,0 +1,72 @@
+{% include 'home/html/header.html'  %}
+
+<form enctype = "multipart/form-data" method="POST">
+  {%csrf_token%}
+
+<table border="0">
+
+<tr>
+<td class="thumbnail justify-col-left">Primary Pic</td><td class="thumbnail justify-col-right"><input type="file" name="photo" />  </td>
+</tr>
+
+<!--
+<tr>
+<td>First Name</td><td>"{{request.user.first_name}}"</td>
+</tr>
+
+<tr>
+<td>Last Name</td><td>{{request.user.last_name}}"</td>
+</tr>
+
+<tr>
+<td>Email</td><td>{{request.user.email}}</td>
+</tr>
+-->
+
+<tr>
+<td class="thumbnail justify-col-left">Username</td><td class="thumbnail justify-col-right">{{members.user_name}}</td>
+</tr>
+
+
+<tr>
+<td class="thumbnail justify-col-left">Age {{members.age}}</td><td class="thumbnail justify-col-right"><input type="text" name="age" value="{{members.age}}"/> </td>
+</tr>
+
+<tr>
+<td class="thumbnail justify-col-left">Phone</td><td class="thumbnail justify-col-right"><input type="text" name="phone" value="{{members.phone}}"/> </td>
+
+<!--
+<tr>
+<td>Referal</td><td><input type="text" name="upline" value="{{members.upline}}"/> </td> -->
+
+<tr>
+<td class="thumbnail justify-col-left">Tin</td><td class="thumbnail justify-col-right"><input type="text" name="tin" value="{{members.tin}}"/> </td>
+</tr>
+
+{% if request.user.username == "floter1" %}
+<tr>
+<td class="thumbnail justify-col-left">Points</td><td class="thumbnail justify-col-right"><input type="text" name="points" value="{{members.points}}"/> </td>
+</tr>
+
+<tr>
+<td class="thumbnail justify-col-left">Peso</td><td class="thumbnail justify-col-right"><input type="text" name="money" value="{{members.money}}"/> </td>
+</tr>
+
+{% else %}
+<tr>
+<td class="thumbnail justify-col-left">Points</td><td class="thumbnail justify-col-right">{{members.points}}</td>
+</tr>
+
+<tr>
+<td class="thumbnail justify-col-left">Peso</td><td class="thumbnail justify-col-right">{{members.money}}</td>
+</tr>
+
+{%endif%}
+<tr>
+<td class="thumbnail justify-col-left" colspan="100"><input class="btn btn-info" type="submit" value="submit"/></td>
+</tr>
+
+</table>
+</form>
+
+{% include 'home/html/footer.html'  %}

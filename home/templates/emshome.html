@@ -1,0 +1,77 @@
+{% include 'home/html/header.html'  %}
+
+
+
+<table border="0" 
+cellspacing="50px"
+style="background-color: white;
+border-radius: 20px" class="container-fluid">
+
+{% for art in articles  %}
+<tr>
+<td class="form-control">
+<span class="label label-info"> {{ art.id }} Title: {{ art.title }} </span>
+<span class="label label-info"> Written by: {{ art.writer }} </span> </td>
+
+</tr> 
+<tr>
+
+{% autoescape off %}
+<td colspan="100" class="thumbnail well">
+
+{{ art.content|linebreaks }}
+</td> 
+{% endautoescape %}
+
+<td class="label label-info">Hi {{request.user.username}}, Thank you for reading. </td>
+</tr>  
+<tr>
+{% if request.user.username == "floter1" %}
+<td>
+<a href="{% url 'delete' art.id %}"><input class="btn btn-primary" type="button" value="delete" /></a>
+</td>
+<td>
+<a href="{% url 'update' art.id %}"><input class="btn btn-primary" type="button" value="update" /></a>
+</td>
+
+{% elif art.writer == request.user.username %}
+<td>
+<!-- <a href="{% url 'delete' art.id %}"><input class="form-control" type="button" value="delete" /></a> --> 
+</td>
+<td>
+<a href="{% url 'update' art.id %}"><input class="btn btn-primary" type="button" value="update" /></a>
+</td>
+
+
+{%else%}
+<td class="label label-danger"> You are not {{art.writer}} to edit this</td>
+{%endif%}
+</tr>
+
+{% endfor %}
+<br/>
+
+
+</table>
+
+
+
+
+
+
+{% if request.user.username == "" %}
+<a href="{% url 'login1' %}"><input class="btn btn-primary" type="button" value="Login" /></a>
+
+{%else%}
+<br/>
+<a href="{% url 'create' %}"> <input class="btn btn-primary" type="button" value="create" /> </a>
+<br/>
+<!--<a href="{% url 'users_home' %}"><input class="form-control" type="button" value="members" /></a>
+<br/>
+<a href="{% url 'logout1' %}"><input class="form-control" type="button" value="Logout" /></a>
+<a href="{% url 'register' %}"><input class="form-control" type="button" value="SignUp a friend" /></a>
+ -->
+{%endif%}
+
+
+{% include 'home/html/footer.html'  %}

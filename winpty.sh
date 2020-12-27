@@ -1,0 +1,1 @@
+winpty python manage.py $1

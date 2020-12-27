@@ -1,0 +1,130 @@
+{% include 'home/html/header.html'  %}
+
+{% if request.user.username == "" %}
+<a href="{% url 'login1' %}"><input class="btn btn-primary" type="button" value="Login" /></a>
+
+{%else%}
+<br/>
+<a href="{% url 'prodcreate' %}"> <input class="btn btn-primary" type="button" value="Create Product" /> </a>
+<br/>
+{%endif%}
+
+
+
+
+
+
+
+<center>
+<table width="95%" border="0" cellspacing="50px" 
+style="background-color: white;
+border-radius: 20px;">
+
+
+<tr>
+<th colspan="100">
+
+
+   <!-- Carousel slides -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+
+
+<div class="thumbnail">
+<div style="text-align: center; border-radius: 20px;">
+<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">X</a> 	
+  <!-- Indicators
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active">0</li>
+    <li data-target="#myCarousel" data-slide-to="1">1</li>
+  </ol> -->
+  
+<div class="col-sm-1 justify-content-center">
+<a href="#myCarousel" data-slide-to="0">
+<button class="btn btn-primary">Reset</button>
+</a>
+</div>
+
+<div class="carousel-inner"> 
+
+
+
+<div class="item active all 1">
+<a class="thumbnail justify-content-center" href="#myCarousel" data-slide="next">
+    <!--  <img src="media/image/local/local.gif" class="img-rectangle" height="192px" width="50%"> -->
+	<div class="col-2" >Welcome to the Shop.</div>
+	<div height="192px" width="50%"><button class="btn btn-primary">Next</button></div>	
+	</a>
+    </div>
+	
+	
+{% for product in products  %}
+
+<div class="item all 2">  
+
+<a href="{% url 'proddetail' product.id %}">
+<div>{{ product.id }}</div>
+<img src="media/{{ product.pic1 }}" class="img-rectangle" height="192px" width="50%">
+<div class="carousel-caption">
+<div class="label label-info"> {{ product.name }}</div>
+<div class="label label-info">price: {{ product.price }} </div>
+</div>
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+</div>
+</div>
+
+  <!-- Left and right controls -->
+
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+  
+    <span class="glyphicon glyphicon-chevron-left btn btn-primary" style="background-color: black;"> <span class="sr-only">Previous</span> </span>
+    
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right btn btn-primary" style="background-color: black;"> <span class="sr-only">Next</span> </span>
+    
+  </a>
+
+
+
+</div>
+
+
+</th>
+</tr>
+
+
+
+
+
+
+</table>
+</center>
+
+
+
+
+
+
+
+
+{% if request.user.username == "" %}
+<a href="{% url 'login1' %}"><input class="btn btn-primary" type="button" value="Login" /></a>
+
+{%else%}
+<br/>
+<a href="{% url 'prodcreate' %}"> <input class="btn btn-primary" type="button" value="Create Product" /> </a>
+<br/>
+
+{%endif%}
+
+
+{% include 'home/html/footer.html'  %}

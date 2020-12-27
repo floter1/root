@@ -1,0 +1,110 @@
+{% include 'home/html/header.html'  %}
+{%csrf_token%}
+
+<center>
+<table class="alert alert-success fade in" width="95%" border="0" 
+cellspacing="50px"
+style="background-color: white;
+border-radius: 20px;">
+
+
+
+
+
+<tr>
+
+<td >
+<div class="container-fluid" style="background-image: url(''); background-size: cover;"><center> 
+<img src="/media/{{ product.pic1 }}" class="img-rectangle" height="192px" width="96px"></center>
+</div>
+</td>
+
+<td >
+<div class="container-fluid" style="background-image: url(''); background-size: cover;" ><center>
+<img src="/media/{{ product.pic2 }}" class="img-rectangle" style="height: 192px; width: inherit;"></center>
+</div>
+</td>
+
+<td >
+<div class="container-fluid" style="background-image: url(''); background-size: cover;" ><center>
+<img src="/media/{{ product.pic3 }}" class="img-rectangle" height="192px" width="96px"></center>
+</div>
+</td>
+</tr>
+<tr>
+{% autoescape off %}
+<td colspan="100">
+
+<hr/>
+<div class="thumbnail">
+<div class="row-sm-1 well" width="192px">
+{{ product.desc|linebreaks }}
+</div>
+</div>
+</td> 
+{% endautoescape %}
+</tr>  
+
+<tr>
+<td colspan="100">
+
+<div class="thumbnail">
+<div class="row-sm-1 well">Product ID: {{ product.id }} </div>
+<div class="row-sm-1 well">Name: {{ product.name }} </div>
+<div class="row-sm-1 well">Seller: {{ product.owner }} </div>
+<div class="row-sm-1 well">type: {{ product.type }} </div>
+<div class="row-sm-1 well">category: {{ product.category }} </div>
+<div class="row-sm-1 well">price: {{ product.price }} </div>
+<div class="row-sm-1 well">markup: {{ product.markup }} </div>
+<div class="row-sm-1 well">referal: {{ product.referal }} </div>
+</div>
+
+<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+
+</td>
+</tr> 
+
+<tr>
+{% if request.user.username == "chris" %}
+<td>
+<a href="{% url 'proddelete' product.id %}"><input class="btn btn-primary" type="button" value="delete" /></a>
+</td>
+<td>
+<a href="{% url 'produpdate' product.id %}"><input class="btn btn-primary" type="button" value="edit" /></a>
+</td>
+
+{% elif product.owner == request.user.username %}
+
+<td>
+<a href="{% url 'produpdate' product.id %}"><input class="btn btn-primary" type="button" value="edit" /></a>
+</td>
+
+
+{%else%}
+<td> You are not {{product.owner}} to edit this</td>
+{%endif%}
+</tr>
+
+
+<br/>
+
+
+</table>
+</center>
+
+
+
+
+
+{% if request.user.username == "" %}
+<a href="{% url 'login1' %}"><input class="btn btn-primary" type="button" value="Login" /></a>
+
+{%else%}
+<br/>
+<a href="{% url 'prodcreate' %}"> <input class="btn btn-primary" type="button" value="create" /> </a>
+<br/>
+
+{%endif%}
+
+
+{% include 'home/html/footer.html'  %}

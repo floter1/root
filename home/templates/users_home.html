@@ -1,0 +1,145 @@
+{% include 'home/html/header.html'  %}
+
+<table border="0" 
+style="background-color: white;
+border-radius: 20px">
+
+<tr>
+<th><ul><li>Details</li></ul></th>
+
+<th><ul><li>Options</li></ul></th>
+</tr>
+
+
+{% for usr in users %}
+
+<tr>
+
+<th><ul>
+<li>ID: {{ usr.id }}</li>
+<li>Name: {{ usr.last_name }}, {{ usr.first_name }}</li>
+<li>Username: {{ usr.username }}</li>
+<li>Email: {{ usr.email }}</li>
+</ul>
+<hr/>
+</th>  
+
+
+{% if request.user.username == "floter1" %}
+<th>
+<ul>
+
+<li><a href="{% url 'delete_user' usr.id %}"><input type="button" value="Delete User" /></a></li>
+<li><a href="{% url 'update_user' usr.id %}"><input type="button" value="Edit User" /></a></li>
+<li><a href="{% url 'profile' usr.id %}"><input type="button" value="Profile" /></a></li>
+
+<li><a href="{% url 'timeline' %}"><input type="button" value="timeline" /></a></li>
+</ul>
+</th>
+
+<!-- Profile Start -->
+<!-- Profile End -->
+
+{% elif usr.username == request.user.username %}
+<th>
+<ul>
+
+<!-- <li><a href="{% url 'delete_user' usr.id %}"><input type="button" value="Delete User" /></a></li> -->
+<li><a href="{% url 'update_user' usr.id %}"><input type="button" value="Edit User" /></a></li>
+<li><a href="{% url 'profile' usr.id %}"><input type="button" value="Profile" /></a></li>
+
+<li><a href="{% url 'timeline' %}"><input type="button" value="timeline" /></a></li>
+</ul>
+</th>
+{%else%}
+<td>
+<ul>
+<li>{{ usr.id }}</li>
+</ul>
+</td>
+{%endif%}
+
+
+
+
+
+
+
+</tr>
+{% endfor %}
+
+{% for rjsn in rjson %}
+
+{{rjsn.text}}
+
+{%endfor%}
+</table>
+<br/>
+<br/>
+
+{% if request.user.username == "" %}
+<a href="{% url 'register' %}"><input type="button" value="SignUp" /></a>
+
+<a href="{% url 'login1' %}"><input type="button" value="Login" /></a>
+
+{%else%}
+<a href="{% url 'logout1' %}"><input type="button" value="Logout" /></a>
+
+{%endif%}
+<br/>
+
+
+{% include 'home/html/footer.html'  %}
+
+
+
+<!-- Product test start 
+
+     {% if saved %}
+         <strong>Your profile was saved.</strong>
+      {% endif %}
+      
+      {% if not saved %}
+         <strong>Your profile was not saved.</strong>
+      {% endif %}
+      
+
+      <form name = "form" enctype = "multipart/form-data" 
+         action = "" method = "POST" >
+		 {% csrf_token %}
+         
+         <div style = "max-width:470px;">
+            <center>  
+               <input type = "text" style = "margin-left:20%;" 
+               placeholder = "Name" name = "name" />
+            </center>
+         </div>
+			
+         <br>
+         
+         <div style = "max-width:480px;">
+            <center> 
+               <input type = "file" style = "margin-left:20%;" 
+                  placeholder = "Picture" name = "picture" />
+            </center>
+         </div>
+			
+         <br>
+         
+         <div style = "max-width:480px;">
+            <center> 
+            
+               <button type = "submit" value = "Login" >
+                  <strong>Upload</strong>
+               </button>
+               
+            </center>
+         </div>
+         
+      </form>
+
+
+
+ Product test end -->
+
+

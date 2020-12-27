@@ -1,0 +1,20 @@
+{% include 'home/html/header.html'  %}
+
+<form method="POST">
+  {%csrf_token%}
+<b>Title:</b><input type="text" name="title"  value="{{article.title}}"/>
+<br/>
+<b>Content:</b>
+<textarea name="content" style="width: 100%; height: 500px">{{article.content}}</textarea>
+<!--
+<input type="text" name="content" value="{{article.content}}"/>
+-->
+<!--
+<br/>
+<input type="hidden" name="writer" value="{{request.user.username}}"/>
+-->
+<br/>
+<input type="submit" value="save"/>
+</form>
+
+{% include 'home/html/footer.html'  %}

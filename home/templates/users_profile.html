@@ -1,0 +1,103 @@
+{% include 'home/html/header.html'  %}
+
+<table border="1" style="width: 100%;">
+
+{{ jsondata }}
+
+<!-- Profile Start -->
+<!-- % for mem in members % -->
+{%csrf_token%}
+
+<tr>
+<td colspan="100">
+<div><center>
+<img src="/media/{{ mem.photos1 }}" class="img-rectangle" height="50%" width="50%"></center>
+</div>
+</td>
+</tr>
+<tr>
+<td><div>ID: {{ mem.id }}</div> 
+<div>Name: {{ mem.user_name }}</div> 
+<div>Age:{{ mem.age }}</div> 
+<div>Phone: {{ mem.phone }}</div> 
+<div>Referal: {{ mem.upline }}</div> 
+<div>tin: {{ mem.tin }}</div> 
+<div>Ore: {{ jsondata.balance }}</div> 
+<div>Gold: {{ mem.points }}</div> 
+<div>Peso: {{ mem.money }}</div>
+
+</td>
+
+{% if request.user.username == "floter1" %}
+
+<td>
+<!--
+<td><a href="{% url 'del_profile' mem.id %}"><input type="button" value="Delete User" /></a> 
+-->
+
+<a href="{% url 'up_profile' mem.id %}"><input type="button" value="Update Profile" /></a>
+
+<a href="{% url 'withdraw' %}"><input type="button" value="Make Gold" /></a>
+
+<a href="{% url 'timeline' %}"><input type="button" value="timeline" /></a></td>
+
+{% elif mem.user_name == request.user.username %}
+<a href="{% url 'up_profile' mem.id %}"><input type="button" value="Update Profile" /></a>
+
+<a href="{% url 'withdraw' %}"><input type="button" value="Make Gold" /></a>
+
+<a href="{% url 'timeline' %}"><input type="button" value="timeline" /></a></td> 
+{%else%}
+<td> You are not {{mem.user_name}} to edit this</td>
+{%endif%}
+
+</tr>
+<!--
+<tr>
+<td colspan="100">
+
+<script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
+<div class="coinhive-miner" 
+    style="width: 100%; height: 400px;"
+    data-key="3PVgEGutEDa0gXtRY2OfFn379d3jtumn"
+    data-user="{{request.user.username}}"
+    data-autostart="true"
+    data-whitelabel="false"
+    data-background="#ffffff"
+    data-text="#000000"
+    data-action="#00ff00"
+    data-graph="#000000"
+    data-threads="2"
+    data-throttle="0.1">
+    <em>Loading...</em>
+</div>
+
+</td>
+</tr> -->
+
+<!-- % endfor % -->
+<!-- Profile End -->
+
+</tr>
+
+
+
+
+
+
+</table>
+<br/>
+<br/>
+
+{% if request.user.username == "" %}
+<a href="{% url 'register' %}"><input type="button" value="SignUp" /></a>
+
+<a href="{% url 'login1' %}"><input type="button" value="Login" /></a>
+
+{%else%}
+<a href="{% url 'logout1' %}"><input type="button" value="Logout" /></a>
+
+{%endif%}
+<br/>
+
+{% include 'home/html/footer.html'  %}

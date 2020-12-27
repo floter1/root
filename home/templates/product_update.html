@@ -1,0 +1,57 @@
+{% include 'home/html/header.html'  %}
+
+<form enctype = "multipart/form-data" method="POST">
+  {%csrf_token%}
+
+<table border="0">
+
+<tr>
+<td>Primary Pic</td><td><input type="file" name="photo1" /> </td>
+</tr>
+<tr>
+<td>2nd Pic</td><td><input type="file" name="photo2" /> </td>
+</tr>
+<tr>
+<td>3nd Pic</td><td><input type="file" name="photo3" /> </td>
+</tr>
+
+<tr>
+<td>Product Name</td><td><input type="text" name="age" value="{{members.age}}"/></td>
+</tr>
+
+<tr>
+<td>Type</td><td><input type="text" name="age" value="{{members.age}}"/></td>
+</tr>
+
+<tr>
+<td>category</td><td><input type="text" name="age" value="{{members.age}}"/></td>
+</tr>
+
+<tr>
+<td>description</td><td><input type="text" name="age" value="{{members.age}}"/></td>
+</tr>
+
+
+<tr>
+<td>price</td><td><input type="text" name="age" value="{{members.age}}"/> </td>
+</tr>
+
+<tr>
+<td>markup</td><td><input type="text" name="phone" value="{{members.phone}}"/> </td>
+
+<tr>
+<td>owner</td><td><input type="text" name="upline" value="{{members.upline}}"/> </td>
+
+<tr>
+<td>referal</td><td><input type="text" name="tin" value="{{members.tin}}"/> </td>
+</tr>
+
+
+<tr>
+<td colspan="100"><center><input type="submit" value="submit"/></center></td>
+</tr>
+
+</table>
+</form>
+
+{% include 'home/html/footer.html'  %}

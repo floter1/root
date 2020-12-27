@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+FScratch
+</title>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% load static %}
+<!--  
+{% static 'css/boot/bootstrap.css' %}
+-->
+
+<link rel="stylesheet" href="{% static 'css/boot/bootstrap3.4.0.min.css' %}" />
+
+  
+<script src="{% static 'js/boot/jquery3.3.1.min.js' %}">
+</script>
+
+
+<script src="{% static 'js/boot/bootstrap3.4.0.min.js' %}">
+</script>
+
+
+<!--
+<link rel="stylesheet" href="css/boot/bootstrap.min.css" />
+
+  
+<script src="js/boot/jquery.min.js">
+</script>
+
+
+<script src="js/boot/bootstrap.min.js">
+</script>
+-->
+
+<!-- Latest compiled and minified CSS
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
+
+<!-- jQuery library
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+<!-- Latest compiled JavaScript
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+
+
+</head>
+
+<body style="width: 95%; border-radius: 20px; border-styl: ridge;">
+
+{% include 'home/html/navbar.html' %}
+<!-- Home -->
+
+<div class="panel-info" style="border-radius: 20px; border-style: ridge;">
+
+<!-- <h1>header</h1> -->
+</div>
+
+
+<!-- Body Here -->
+
+
+<div class="container text-center" style="border-radius: 20px; border-style: ridge;">   
+
+<!-- Left Side here -->
+
+  <div class="row" >
+    <div class="col-sm-3 well">
+    
+      <div class="well"> 
+        
+        <!-- <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">  -->
+
+        
+        
+
+	{% if members.user_name == request.user.username %}	
+        <p><a href="{% url 'profile' request.user.id %}">
+		{{ request.user.username }} Profile
+		</a></p>
+	{%else%}
+		--
+	{%endif%}
+
+        <div class="label label-info"> </div>
+        Welcome
+
+
+      </div>
+      
+      
+      <p class="label label-warning" style="border-radius: 20px;"><a href="">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      
+    </div>
+    
+    <!-- Left Side End -->
+
+
+
+    <!-- Center Content here -->
+    
+    <div class="col-sm-7" >
+    
+      <div class="row" >
+        <div class="col-sm-12" >
+          <div class="panel panel-default text-left" >
+            <div class="panel-body" >
+
+<!-- Mid Content -->
+
+

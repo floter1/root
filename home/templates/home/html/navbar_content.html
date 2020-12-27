@@ -1,0 +1,47 @@
+{% if request.user.username == "" %}
+<li class="active">
+<a href="{% url 'register' %}">
+<span class="glyphicon glyphicon-user"></span> 
+Signup
+</a>
+</li>
+
+<li class="active">
+<a href="{% url 'login1' %}">
+<span class="glyphicon glyphicon-user"></span>
+Login
+</a>
+</li>
+{%else%}
+<li class="active">
+..
+</li>
+
+<li class="active">
+<a href="{% url 'timeline' %}">
+Timeline
+</a>
+</li>
+
+<li class="active">
+<a href="{% url 'users_home' %}">
+Members List
+</a>
+</li>
+
+<li class="active">
+<a href="{% url 'register' %}">
+Add Members
+</a>
+</a>
+
+<li class="active">
+<a href="{% url 'logout1' %}">
+Logout
+</a>
+</li>
+{%endif%}
+
+
+
+

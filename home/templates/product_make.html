@@ -1,0 +1,84 @@
+{% include 'home/html/header.html'  %}
+
+<form enctype = "multipart/form-data" method="POST">
+  {%csrf_token%}
+
+
+  
+  
+<table class="form-group" width="95%" border="0" 
+cellspacing="90px"
+style="background-color: white;
+border-radius: 20px">
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">Primary Pic</td><td class="col-sm-2 well"><input class="form-control" type="file" name="photo1" value="{{products.pic1}}/>" </td>
+</tr>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">2nd Pic</td><td class="col-sm-2 well"><input class="form-control" type="file" name="photo2" value="{{products.pic2}}"/> </td>
+</tr>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">3nd Pic</td><td class="col-sm-2 well"><input class="form-control" type="file" name="photo3" value="{{products.pic3}}"/> </td>
+</tr>
+
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">Product Name</td><td class="col-sm-2 well"><input class="form-control" class="form-control" type="text" name="name" value="{{products.name}}"/></td>
+</tr>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">Type</td><td class="col-sm-2 well"><input class="form-control" type="text" name="prodtype" value="{{products.type}}"/></td>
+</tr>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">category</td><td class="col-sm-2 well"><input class="form-control" type="text" name="prodcat" value="{{products.category}}"/></td>
+</tr>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">description</td><td class="col-sm-2 well"><input class="form-control" type="text" name="proddesc" value="{{products.desc}}"/></td>
+</tr>
+
+
+<script type="text/javascript">
+
+function Price_comp(){
+var orig_price1 = document.getElementById("orig_price").value;
+var markup = document.getElementById("prod_markup").value;
+var percent_referal = document.getElementById("prod_ref").value / 100;
+var system_fee = orig_price1 * 0.02;
+var referal = orig_price1 * percent_referal;
+var total = Number(orig_price1) + Number(markup) + Number(referal);
+
+document.getElementById("prod_price1").value = Number(total) + Number(system_fee);
+document.getElementById("prod_price2").innerHTML = total + " plus " + system_fee + " maintenance fee";
+}
+
+</script>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-1 well">Product Original Price</td><td class="col-sm-2 well"><input class="form-control" type="text" onchange="Price_comp();" id="orig_price" name="origprice" value="{{products.origprice}}"/> </td>
+</tr>
+
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">fixed markup = </td><td class="col-sm-2 well"><input class="form-control" type="text" onchange="Price_comp();" id="prod_markup" name="markup" value="{{products.markup}}"/> </td>
+</tr>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">% referal = </td><td class="col-sm-2 well"><input class="form-control" type="text" onchange="Price_comp();" id="prod_ref" name="referal" value="{{products.referal}}"/> </td>
+</tr>
+
+<tr class="row-sm-1 well">
+<td class="col-sm-2 well">Selling Price: </td><td class="col-sm-2 well"><div id="prod_price2">{{products.price}}</div><div><input type="hidden" id="prod_price1" name="price" value="{{products.price}}"/></div> </td>
+</tr>
+
+<tr>
+<td colspan="100"><center><input class="btn btn-primary" type="submit" value="submit"/></center></td>
+</tr>
+
+</table>
+</form>
+
+{% include 'home/html/footer.html'  %}

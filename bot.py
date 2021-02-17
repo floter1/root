@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context) -> int:
 	user = update.message.from_user
-	update.message.reply_text('Hi ' + user.first_name + '!! please click /help for more info ' + "\n with ID:" + str(user.id) + "\n \n and Date:" + str(update.message.date) + "\n logger Name:" + logger.name + '\n Update1 "%s" caused error "%s"')
+	update.message.reply_text('Hi ' + user.first_name + '!! please click /help for more info ' + "\n with ID:" + str(user.id) + "\n \n and Date:" + str(update.message.date) + "\n logger Name:" + logger.name + '\n Update "%s" caused error "%s"')
 
 
 def help(update, context):

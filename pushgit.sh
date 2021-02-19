@@ -1,4 +1,4 @@
-git pull --commit https://floter1:596169b7129beff835abb1f360cff00afd7c00c0@github.com/floter1/root.git
+git pull --commit https://floter1:2bb47e1e4afb4bcfb65295a1847124b5ca77f43a@github.com/floter1/root.git
 git add -A
 git commit -m "auto push sh"
-git push --repo https://floter1:596169b7129beff835abb1f360cff00afd7c00c0@github.com/floter1/root.git
+git push --repo https://floter1:2bb47e1e4afb4bcfb65295a1847124b5ca77f43a@github.com/floter1/root.git
